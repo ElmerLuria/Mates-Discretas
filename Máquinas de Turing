@@ -1,1 +1,164 @@
+# Simulación de una Máquina de Turing en Python
+
+# Importamos las bibliotecas necesarias
+import pandas as pd
+
+# Definimos la clase que representará nuestra Máquina de Turing
+class TuringMachine:
+    def __init__(self, states, tape_alphabet, blank_symbol, input_alphabet, transition_function, start_state, accept_state, reject_state):
+        """
+        Inicializa la máquina de Turing con los parámetros dados.
+        
+        Parámetros:
+        states: Lista de estados.
+        tape_alphabet: Alfabeto de la cinta.
+        blank_symbol: Símbolo en blanco en la cinta.
+        input_alphabet: Alfabeto de entrada.
+        transition_function: Función de transición (diccionario).
+        start_state: Estado inicial.
+        accept_state: Estado de aceptación.
+        reject_state: Estado de rechazo.
+        """
+        self.states = states
+        self.tape_alphabet = tape_alphabet
+        self.blank_symbol = blank_symbol
+        self.input_alphabet = input_alphabet
+        self.transition_function = transition_function
+        self.start_state = start_state
+        self.accept_state = accept_state
+        self.reject_state = reject_state
+        self.reset()
+
+    def reset(self):
+        """
+        Resetea la máquina de Turing a su estado inicial.
+        """
+        self.tape = []
+        self.head_position = 0
+        self.current_state = self.start_state
+
+    def load_tape(self, input_string):
+        """
+        Carga una cadena de entrada en la cinta.
+        
+        Parámetros:
+        input_string: Cadena de entrada.
+        """
+        self.tape = list(input_string) + [self.blank_symbol]
+        self.head_position = 0
+
+    def step(self):
+        """
+        Realiza un paso de la máquina de Turing.
+        
+        Retorna:
+        False si la máquina está en un estado de aceptación o rechazo, True de lo contrario.
+        """
+        if self.current_state == self.accept_state or self.current_state == self.reject_state:
+            return False
+
+        # Leer el símbolo actual de la cinta
+        current_symbol = self.tape[self.head_position]
+
+        # Obtener la acción a realizar desde la función de transición
+        if (self.current_state, current_symbol) in self.transition_function:
+            next_state, write_symbol, move_direction = self.transition_function[(self.current_state, current_symbol)]
+            
+            # Escribir el nuevo símbolo en la cinta
+            self.tape[self.head_position] = write_symbol
+            
+            # Mover la cabeza de la cinta
+            if move_direction == 'R':
+                self.head_position += 1
+                if self.head_position >= len(self.tape):
+                    self.tape.append(self.blank_symbol)
+            elif move_direction == 'L':
+                if self.head_position > 0:
+                    self.head_position -= 1
+                else:
+                    self.tape.insert(0, self.blank_symbol)
+                    
+            # Cambiar al nuevo estado
+            self.current_state = next_state
+            return True
+        else:
+            self.current_state = self.reject_state
+            return False
+
+    def run(self, input_string, max_steps=1000):
+        """
+        Corre la máquina de Turing sobre una cadena de entrada.
+        
+        Parámetros:
+        input_string: Cadena de entrada.
+        max_steps: Número máximo de pasos a ejecutar.
+        
+        Retorna:
+        True si la máquina acepta la cadena, False de lo contrario.
+        """
+        self.reset()
+        self.load_tape(input_string)
+
+        for _ in range(max_steps):
+            if not self.step():
+                break
+
+        return self.current_state == self.accept_state
+
+    def get_tape_contents(self):
+        """
+        Obtiene el contenido actual de la cinta.
+        
+        Retorna:
+        Una cadena representando el contenido de la cinta.
+        """
+        return ''.join(self.tape).rstrip(self.blank_symbol)
+
+
+# Ejemplo de uso de la Máquina de Turing
+
+# Definimos los estados
+states = ['q0', 'q1', 'qa', 'qr']
+
+# Definimos el alfabeto de la cinta
+tape_alphabet = ['0', '1', 'X', '_']
+
+# Definimos el símbolo en blanco
+blank_symbol = '_'
+
+# Definimos el alfabeto de entrada
+input_alphabet = ['0', '1']
+
+# Definimos la función de transición
+# La función de transición es un diccionario donde las llaves son tuplas de (estado, símbolo_entrada)
+# y los valores son tuplas de (nuevo_estado, símbolo_escribir, dirección)
+transition_function = {
+    ('q0', '0'): ('q0', '0', 'R'),
+    ('q0', '1'): ('q1', 'X', 'R'),
+    ('q1', '0'): ('q1', '0', 'R'),
+    ('q1', '1'): ('qa', '1', 'R'),
+    ('q1', '_'): ('qr', '_', 'R'),
+}
+
+# Definimos el estado inicial
+start_state = 'q0'
+
+# Definimos el estado de aceptación
+accept_state = 'qa'
+
+# Definimos el estado de rechazo
+reject_state = 'qr'
+
+# Creamos la máquina de Turing
+tm = TuringMachine(states, tape_alphabet, blank_symbol, input_alphabet, transition_function, start_state, accept_state, reject_state)
+
+# Definimos la cadena de entrada
+input_string = '011'
+
+# Corremos la máquina de Turing
+accepted = tm.run(input_string)
+
+# Mostramos el resultado
+print(f"La cadena '{input_string}' fue {'aceptada' if accepted else 'rechazada'} por la máquina de Turing.")
+print("Contenido final de la cinta:", tm.get_tape_contents())
 
