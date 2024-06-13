@@ -1,49 +1,262 @@
-# Cómo entrenar a tu dragón - Grafo de las películas
+# Proyecto
+import networkx as nx
+import matplotlib.pyplot as plt
+G = nx.Graph()
 
-## Importar librerías
+G.add_node("Hippo")
+G.add_node("Astrid H.")
+G.add_node("Patán")
+G.add_node("Patapez")
+G.add_node("Brutacio")
+G.add_node("Brutilda")
+G.add_node("Estoico")
+G.add_node("Bocón")
+G.add_node("Valka")
+G.add_node("Eret")
+G.add_node("Grimmel")
+G.add_node("Drago Manodura")
+G.add_node("Chimuelo")
+G.add_node("Tormenta")
+G.add_node("Albóndiga")
+G.add_node("Eructo y Guácara")
+G.add_node("Dientepua")
+
+# Hago las conecciones
+G.add_edge("Hippo", "Astrid H.")
+G.add_edge("Hippo", "Patán")
+G.add_edge("Hippo", "Patapez")
+G.add_edge("Hippo", "Brutacio")
+G.add_edge("Hippo", "Brutilda")
+G.add_edge("Hippo", "Bocón")
+G.add_edge("Hippo", "Estoico")
+G.add_edge("Hippo", "Valka")
+G.add_edge("Hippo", "Eret")
+G.add_edge("Hippo", "Grimmel")
+G.add_edge("Hippo", "Drago Manodura")
+
+
+G.add_edge("Astrid H.", "Hippo")
+G.add_edge("Astrid H.", "Patán")
+G.add_edge("Astrid H.", "Patapez")
+G.add_edge("Astrid H.", "Brutacio")
+G.add_edge("Astrid H.", "Brutilda")
+G.add_edge("Astrid H.", "Bocón")
+G.add_edge("Astrid H.", "Estoico")
+G.add_edge("Astrid H.", "Valka")
+G.add_edge("Astrid H.", "Eret")
+G.add_edge("Astrid H.", "Grimmel")
+G.add_edge("Astrid H.", "Drago Manodura")
+
+# Conexiones de Patán
+G.add_edge("Patán", "Hippo")
+G.add_edge("Patán", "Astrid H.")
+G.add_edge("Patán", "Patapez")
+G.add_edge("Patán", "Brutacio")
+G.add_edge("Patán", "Brutilda")
+G.add_edge("Patán", "Bocón")
+G.add_edge("Patán", "Estoico")
+G.add_edge("Patán", "Valka")
+G.add_edge("Patán", "Eret")
+G.add_edge("Patán", "Grimmel")
+G.add_edge("Patán", "Drago Manodura")
+
+
+G.add_edge("Patapez", "Hippo")
+G.add_edge("Patapez", "Astrid H.")
+G.add_edge("Patapez", "Patán")
+G.add_edge("Patapez", "Brutacio")
+G.add_edge("Patapez", "Brutilda")
+G.add_edge("Patapez", "Bocón")
+G.add_edge("Patapez", "Estoico")
+G.add_edge("Patapez", "Valka")
+G.add_edge("Patapez", "Eret")
+G.add_edge("Patapez", "Grimmel")
+G.add_edge("Patapez", "Drago Manodura")
+
+
+G.add_edge("Brutacio", "Hippo")
+G.add_edge("Brutacio", "Astrid H.")
+G.add_edge("Brutacio", "Patán")
+G.add_edge("Brutacio", "Patapez")
+G.add_edge("Brutacio", "Brutilda")
+G.add_edge("Brutacio", "Bocón")
+G.add_edge("Brutacio", "Estoico")
+G.add_edge("Brutacio", "Valka")
+G.add_edge("Brutacio", "Eret")
+G.add_edge("Brutacio", "Grimmel")
+G.add_edge("Brutacio", "Drago Manodura")
+
+
+G.add_edge("Brutilda", "Hippo")
+G.add_edge("Brutilda", "Astrid H.")
+G.add_edge("Brutilda", "Patán")
+G.add_edge("Brutilda", "Patapez")
+G.add_edge("Brutilda", "Brutacio")
+G.add_edge("Brutilda", "Bocón")
+G.add_edge("Brutilda", "Estoico")
+G.add_edge("Brutilda", "Valka")
+G.add_edge("Brutilda", "Eret")
+G.add_edge("Brutilda", "Grimmel")
+G.add_edge("Brutilda", "Drago Manodura")
+
+
+G.add_edge("Estoico", "Hippo")
+G.add_edge("Estoico", "Astrid H.")
+G.add_edge("Estoico", "Patán")
+G.add_edge("Estoico", "Patapez")
+G.add_edge("Estoico", "Brutacio")
+G.add_edge("Estoico", "Brutilda")
+G.add_edge("Estoico", "Bocón")
+G.add_edge("Estoico", "Valka")
+G.add_edge("Estoico", "Eret")
+G.add_edge("Estoico", "Grimmel")
+G.add_edge("Estoico", "Drago Manodura")
+
+
+G.add_edge("Bocón", "Hippo")
+G.add_edge("Bocón", "Astrid H.")
+G.add_edge("Bocón", "Patán")
+G.add_edge("Bocón", "Patapez")
+G.add_edge("Bocón", "Brutacio")
+G.add_edge("Bocón", "Brutilda")
+G.add_edge("Bocón", "Estoico")
+G.add_edge("Bocón", "Valka")
+G.add_edge("Bocón", "Eret")
+G.add_edge("Bocón", "Grimmel")
+G.add_edge("Bocón", "Drago Manodura")
+
+
+G.add_edge("Valka", "Hippo")
+G.add_edge("Valka", "Astrid H.")
+G.add_edge("Valka", "Patán")
+G.add_edge("Valka", "Patapez")
+G.add_edge("Valka", "Brutacio")
+G.add_edge("Valka", "Brutilda")
+G.add_edge("Valka", "Estoico")
+G.add_edge("Valka", "Bocón")
+G.add_edge("Valka", "Eret")
+G.add_edge("Valka", "Grimmel")
+G.add_edge("Valka", "Drago Manodura")
+
+# Conexiones de Eret
+G.add_edge("Eret", "Hippo")
+G.add_edge("Eret", "Astrid H.")
+G.add_edge("Eret", "Patán")
+G.add_edge("Eret", "Patapez")
+G.add_edge("Eret", "Brutacio")
+G.add_edge("Eret", "Brutilda")
+G.add_edge("Eret", "Estoico")
+G.add_edge("Eret", "Bocón")
+G.add_edge("Eret", "Valka")
+G.add_edge("Eret", "Grimmel")
+G.add_edge("Eret", "Drago Manodura")
+
+
+G.add_edge("Grimmel", "Hippo")
+G.add_edge("Grimmel", "Astrid H.")
+G.add_edge("Grimmel", "Patán")
+G.add_edge("Grimmel", "Patapez")
+G.add_edge("Grimmel", "Brutacio")
+G.add_edge("Grimmel", "Brutilda")
+G.add_edge("Grimmel", "Estoico")
+G.add_edge("Grimmel", "Bocón")
+G.add_edge("Grimmel", "Valka")
+G.add_edge("Grimmel", "Eret")
+G.add_edge("Grimmel", "Drago Manodura")
+
+
+G.add_edge("Drago Manodura", "Hippo")
+G.add_edge("Drago Manodura", "Astrid H.")
+G.add_edge("Drago Manodura", "Patán")
+G.add_edge("Drago Manodura", "Patapez")
+G.add_edge("Drago Manodura", "Brutacio")
+G.add_edge("Drago Manodura", "Brutilda")
+G.add_edge("Drago Manodura", "Estoico")
+G.add_edge("Drago Manodura", "Bocón")
+G.add_edge("Drago Manodura", "Valka")
+G.add_edge("Drago Manodura", "Eret")
+G.add_edge("Drago Manodura", "Grimmel")
+
+G.add_edge("Hippo", "Chimuelo")
+G.add_edge("Astrid H.", "Tormenta")
+G.add_edge("Patán", "Dientepua")
+G.add_edge("Patapez", "Albóndiga")
+G.add_edge("Brutacio", "Eructo y Guácara")
+G.add_edge("Brutilda", "Eructo y Guácara")
+
 import networkx as nx
 import matplotlib.pyplot as plt
 
-## Crear el grafo
+
 G = nx.Graph()
 
-# Agregar nodos para las películas
-G.add_node("Cómo entrenar a tu dragón 1", type='movie')
-G.add_node("Cómo entrenar a tu dragón 2", type='movie')
-G.add_node("Cómo entrenar a tu dragón 3", type='movie')
 
-# Agregar nodos para los personajes principales
-G.add_node("Hipo", type='character')
-G.add_node("Astrid", type='character')
-G.add_node("Chimuelo", type='character')
+characters = ["Hippo", "Astrid H.", "Patán", "Patapez", "Brutacio", "Brutilda", "Estoico", "Bocón", "Valka", "Eret", "Grimmel", "Drago Manodura"]
+dragons = ["Chimuelo", "Tormenta", "Albóndiga", "Eructo y Guácara", "Dientepua"]
 
-# Conectar personajes con las películas en las que aparecen
-G.add_edge("Cómo entrenar a tu dragón 1", "Hipo")
-G.add_edge("Cómo entrenar a tu dragón 1", "Astrid")
-G.add_edge("Cómo entrenar a tu dragón 1", "Chimuelo")
+for character in characters:
+    G.add_node(character)
 
-G.add_edge("Cómo entrenar a tu dragón 2", "Hipo")
-G.add_edge("Cómo entrenar a tu dragón 2", "Astrid")
-G.add_edge("Cómo entrenar a tu dragón 2", "Chimuelo")
+for dragon in dragons:
+    G.add_node(dragon)
 
-G.add_edge("Cómo entrenar a tu dragón 3", "Hipo")
-G.add_edge("Cómo entrenar a tu dragón 3", "Astrid")
-G.add_edge("Cómo entrenar a tu dragón 3", "Chimuelo")
 
-# Dibujar el grafo
-pos = nx.spring_layout(G)  # Posiciones de los nodos
-plt.figure(figsize=(10, 7))
+edges = [
+    ("Hippo", "Astrid H."), ("Hippo", "Patán"), ("Hippo", "Patapez"), ("Hippo", "Brutacio"), 
+    ("Hippo", "Brutilda"), ("Hippo", "Bocón"), ("Hippo", "Estoico"), ("Hippo", "Valka"), 
+    ("Hippo", "Eret"), ("Hippo", "Grimmel"), ("Hippo", "Drago Manodura"),
+    ("Astrid H.", "Hippo"), ("Astrid H.", "Patán"), ("Astrid H.", "Patapez"), 
+    ("Astrid H.", "Brutacio"), ("Astrid H.", "Brutilda"), ("Astrid H.", "Bocón"), 
+    ("Astrid H.", "Estoico"), ("Astrid H.", "Valka"), ("Astrid H.", "Eret"), 
+    ("Astrid H.", "Grimmel"), ("Astrid H.", "Drago Manodura"),
+    ("Patán", "Hippo"), ("Patán", "Astrid H."), ("Patán", "Patapez"), ("Patán", "Brutacio"), 
+    ("Patán", "Brutilda"), ("Patán", "Bocón"), ("Patán", "Estoico"), ("Patán", "Valka"), 
+    ("Patán", "Eret"), ("Patán", "Grimmel"), ("Patán", "Drago Manodura"),
+    ("Patapez", "Hippo"), ("Patapez", "Astrid H."), ("Patapez", "Patán"), ("Patapez", "Brutacio"), 
+    ("Patapez", "Brutilda"), ("Patapez", "Bocón"), ("Patapez", "Estoico"), ("Patapez", "Valka"), 
+    ("Patapez", "Eret"), ("Patapez", "Grimmel"), ("Patapez", "Drago Manodura"),
+    ("Brutacio", "Hippo"), ("Brutacio", "Astrid H."), ("Brutacio", "Patán"), ("Brutacio", "Patapez"), 
+    ("Brutacio", "Brutilda"), ("Brutacio", "Bocón"), ("Brutacio", "Estoico"), ("Brutacio", "Valka"), 
+    ("Brutacio", "Eret"), ("Brutacio", "Grimmel"), ("Brutacio", "Drago Manodura"),
+    ("Brutilda", "Hippo"), ("Brutilda", "Astrid H."), ("Brutilda", "Patán"), ("Brutilda", "Patapez"), 
+    ("Brutilda", "Brutacio"), ("Brutilda", "Bocón"), ("Brutilda", "Estoico"), ("Brutilda", "Valka"), 
+    ("Brutilda", "Eret"), ("Brutilda", "Grimmel"), ("Brutilda", "Drago Manodura"),
+    ("Estoico", "Hippo"), ("Estoico", "Astrid H."), ("Estoico", "Patán"), ("Estoico", "Patapez"), 
+    ("Estoico", "Brutacio"), ("Estoico", "Brutilda"), ("Estoico", "Bocón"), ("Estoico", "Valka"), 
+    ("Estoico", "Eret"), ("Estoico", "Grimmel"), ("Estoico", "Drago Manodura"),
+    ("Bocón", "Hippo"), ("Bocón", "Astrid H."), ("Bocón", "Patán"), ("Bocón", "Patapez"), 
+    ("Bocón", "Brutacio"), ("Bocón", "Brutilda"), ("Bocón", "Estoico"), ("Bocón", "Valka"), 
+    ("Bocón", "Eret"), ("Bocón", "Grimmel"), ("Bocón", "Drago Manodura"),
+    ("Valka", "Hippo"), ("Valka", "Astrid H."), ("Valka", "Patán"), ("Valka", "Patapez"), 
+    ("Valka", "Brutacio"), ("Valka", "Brutilda"), ("Valka", "Estoico"), ("Valka", "Bocón"), 
+    ("Valka", "Eret"), ("Valka", "Grimmel"), ("Valka", "Drago Manodura"),
+    ("Eret", "Hippo"), ("Eret", "Astrid H."), ("Eret", "Patán"), ("Eret", "Patapez"), 
+    ("Eret", "Brutacio"), ("Eret", "Brutilda"), ("Eret", "Estoico"), ("Eret", "Bocón"), 
+    ("Eret", "Valka"), ("Eret", "Grimmel"), ("Eret", "Drago Manodura"),
+    ("Grimmel", "Hippo"), ("Grimmel", "Astrid H."), ("Grimmel", "Patán"), ("Grimmel", "Patapez"), 
+    ("Grimmel", "Brutacio"), ("Grimmel", "Brutilda"), ("Grimmel", "Estoico"), ("Grimmel", "Bocón"), 
+    ("Grimmel", "Valka"), ("Grimmel", "Eret"), ("Grimmel", "Drago Manodura"),
+    ("Drago Manodura", "Hippo"), ("Drago Manodura", "Astrid H."), ("Drago Manodura", "Patán"), 
+    ("Drago Manodura", "Patapez"), ("Drago Manodura", "Brutacio"), ("Drago Manodura", "Brutilda"), 
+    ("Drago Manodura", "Estoico"), ("Drago Manodura", "Bocón"), ("Drago Manodura", "Valka"), 
+    ("Drago Manodura", "Eret"), ("Drago Manodura", "Grimmel"),
+    ("Hippo", "Chimuelo"), ("Astrid H.", "Tormenta"), ("Patán", "Albóndiga"), 
+    ("Patapez", "Dientepua"), ("Brutacio", "Eructo y Guácara"), ("Brutilda", "Eructo y Guácara")
+]
 
-# Dibujar nodos con diferentes colores según el tipo
-node_colors = ['lightblue' if G.nodes[node]['type'] == 'movie' else 'lightgreen' for node in G]
-nx.draw_networkx_nodes(G, pos, node_color=node_colors, node_size=2000)
+for edge in edges:
+    G.add_edge(*edge)
 
-# Dibujar bordes
-nx.draw_networkx_edges(G, pos)
 
-# Dibujar etiquetas
-nx.draw_networkx_labels(G, pos, font_size=12, font_family="sans-serif")
+pos = nx.spring_layout(G, k=0.5, iterations=100)
 
-# Mostrar el grafo
-plt.title("Grafo de las películas y personajes de Cómo entrenar a tu dragón")
+
+node_colors = ['lightblue' if node in characters else 'lightgreen' for node in G.nodes()]
+
+
+node_sizes = [2500 if node in characters else 1000 for node in G.nodes()]
+
+
+plt.figure(figsize=(15, 15))
+nx.draw(G, pos, with_labels=True, node_color=node_colors, node_size=node_sizes, font_size=10, font_color='black', font_weight='bold')
 plt.show()
