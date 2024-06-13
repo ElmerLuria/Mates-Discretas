@@ -1,0 +1,49 @@
+# Cómo entrenar a tu dragón - Grafo de las películas
+
+## Importar librerías
+import networkx as nx
+import matplotlib.pyplot as plt
+
+## Crear el grafo
+G = nx.Graph()
+
+# Agregar nodos para las películas
+G.add_node("Cómo entrenar a tu dragón 1", type='movie')
+G.add_node("Cómo entrenar a tu dragón 2", type='movie')
+G.add_node("Cómo entrenar a tu dragón 3", type='movie')
+
+# Agregar nodos para los personajes principales
+G.add_node("Hipo", type='character')
+G.add_node("Astrid", type='character')
+G.add_node("Chimuelo", type='character')
+
+# Conectar personajes con las películas en las que aparecen
+G.add_edge("Cómo entrenar a tu dragón 1", "Hipo")
+G.add_edge("Cómo entrenar a tu dragón 1", "Astrid")
+G.add_edge("Cómo entrenar a tu dragón 1", "Chimuelo")
+
+G.add_edge("Cómo entrenar a tu dragón 2", "Hipo")
+G.add_edge("Cómo entrenar a tu dragón 2", "Astrid")
+G.add_edge("Cómo entrenar a tu dragón 2", "Chimuelo")
+
+G.add_edge("Cómo entrenar a tu dragón 3", "Hipo")
+G.add_edge("Cómo entrenar a tu dragón 3", "Astrid")
+G.add_edge("Cómo entrenar a tu dragón 3", "Chimuelo")
+
+# Dibujar el grafo
+pos = nx.spring_layout(G)  # Posiciones de los nodos
+plt.figure(figsize=(10, 7))
+
+# Dibujar nodos con diferentes colores según el tipo
+node_colors = ['lightblue' if G.nodes[node]['type'] == 'movie' else 'lightgreen' for node in G]
+nx.draw_networkx_nodes(G, pos, node_color=node_colors, node_size=2000)
+
+# Dibujar bordes
+nx.draw_networkx_edges(G, pos)
+
+# Dibujar etiquetas
+nx.draw_networkx_labels(G, pos, font_size=12, font_family="sans-serif")
+
+# Mostrar el grafo
+plt.title("Grafo de las películas y personajes de Cómo entrenar a tu dragón")
+plt.show()
